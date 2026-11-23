@@ -1,0 +1,52 @@
+   .glass-container {
+       background: rgba(255, 140, 0, 0.25);
+       backdrop-filter: blur(16px);
+       -webkit-backdrop-filter: blur(16px);
+       border: 1px solid rgba(255, 255, 255, 0.3);
+       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+       border-radius: 1.25rem;
+       color: #ffffff;
+   }
+
+   .glass-input {
+       background: rgba(255, 255, 255, 0.2);
+       border: 1px solid rgba(255, 255, 255, 0.3);
+       color: #ffffff;
+   }
+
+   .glass-input:focus {
+       background: rgba(255, 255, 255, 0.3);
+       border-color: rgba(255, 255, 255, 0.6);
+       color: #ffffff;
+       box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.35);
+   }
+
+   .glass-input::placeholder {
+       color: rgba(255, 255, 255, 0.7);
+   }
+
+   .btn-custom {
+       background-color: #ff7700;
+       border-color: #ff7700;
+       color: #ffffff;
+       font-weight: 600;
+       transition: all 0.3s ease;
+   }
+
+   .btn-custom:hover {
+       background-color: #e06800;
+       border-color: #e06800;
+       color: #ffffff;
+       box-shadow: 0 4px 15px rgba(255, 119, 0, 0.4);
+   }
+
+   .loading-screen {
+       position: fixed;
+       inset: 0;
+       width: 100%;
+       z-index: 1050;
+   }
+
+   .loading-screen[hidden] {
+       display: none !important;
+   }

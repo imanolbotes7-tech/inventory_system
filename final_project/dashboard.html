@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#" aria-label="Inventory home">
+                <span class="brand-mark">I</span>
+                <span class="brand-name">Inventory</span>
+            </a>
+
+            <nav class="side-nav" aria-label="Main navigation">
+                <a class="nav-link active" href="#home" aria-current="page">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+                    <span>Home</span>
+                </a>
+                <a class="nav-link" href="#inventory">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg>
+                    <span>Inventory</span><span class="nav-caret">›</span>
+                </a>
+                <a class="nav-link" href="#reports">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10m5 10V4m5 16v-7m5 7V7"/></svg>
+                    <span>Reports</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="home">
+            <header class="topbar">
+                <button class="mobile-menu" type="button" aria-label="Open menu">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <div class="topbar-tools">
+                    <button class="round-tool notification-dot" type="button" aria-label="Notifications">●</button>
+                    <button class="round-tool" type="button" aria-label="Recent activity">◷</button>
+                    <label class="search-box">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+                        <input type="search" placeholder="Search" aria-label="Search">
+                    </label>
+                </div>
+                <div class="profile-tools">
+                    <span id="profile_name"></span>
+                    <button class="round-tool" type="button" aria-label="Profile">👤</button>
+                    <button class="round-tool" type="button" aria-label="Settings">⚙️</button>
+                </div>
+            </header>
+
+            <section class="summary-band" aria-label="Sales and inventory overview">
+                <div class="sales-activity">
+                    <div class="section-heading">
+                        <h1>Sales Activity</h1>
+                    </div>
+                    <div class="activity-cards">
+                        <article class="activity-card blue">
+                            <strong>0</strong><span>Qty</span>
+                            <small><i></i> To be packed</small>
+                        </article>
+                        <article class="activity-card red">
+                            <strong>0</strong><span>Pkgs</span>
+                            <small><i></i> To be shipped</small>
+                        </article>
+                        <article class="activity-card green">
+                            <strong>0</strong><span>Pkgs</span>
+                            <small><i></i> To be delivered</small>
+                        </article>
+                        <article class="activity-card blue">
+                            <strong>0</strong><span>Qty</span>
+                            <small><i></i> To be invoiced</small>
+                        </article>
+                    </div>
+                </div>
+                <div class="inventory-summary">
+                    <h2>Inventory Summary</h2>
+                    <div class="summary-row"><span>Active Items</span><strong id="count_products">—</strong></div>
+                    <div class="summary-row"><span>Quantity in hand</span><strong>0 <small>pcs</small></strong></div>
+                    <div class="summary-row"><span>Quantity to be received</span><strong>0 <small>pcs</small></strong></div>
+                </div>
+            </section>
+
+            <section class="dashboard-grid" aria-label="Dashboard details">
+                <article class="panel product-panel" id="inventory">
+                    <div class="panel-heading"><h2>Product Details</h2></div>
+                    <div class="product-details-card" aria-live="polite">
+                        <div class="product-details-list">
+                            <div class="product-detail-row low-stock">
+                                <span>Low Stock Items</span>
+                                <strong id="low_stock_count">—</strong>
+                            </div>
+                            <div class="product-detail-row all-items">
+                                <span>All Items</span>
+                                <strong id="all_items_count">—</strong>
+                            </div>
+                            <div class="product-detail-row unconfirmed-items">
+                                <span>Unconfirmed Items</span>
+                                <strong id="unconfirmed_items_count">—</strong>
+                            </div>
+                        </div>
+                        <div class="active-items-ring" id="active_items_ring" role="img" aria-label="Active items">
+                            <div class="ring-label">
+                                <strong id="active_items_percent">—</strong>
+                                <span>Active Items</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="panel purchase-panel" id="purchases">
+                    <div class="panel-heading">
+                        <h2>Purchase Order</h2>
+                        <button class="period-button" type="button">This Month <span>⌄</span></button>
+                    </div>
+                    <div class="purchase-total">
+                        <span>Quantity Ordered</span>
+                        <strong>0</strong>
+                    </div>
+                </article>
+
+                <article class="panel sales-panel" id="sales">
+                    <div class="panel-heading"><h2>Sales Order</h2></div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>Channel</th><th>Draft</th><th>Confirmed</th><th>Packed</th><th>Shipped</th></tr></thead>
+                            <tbody><tr><td>Direct sales</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
